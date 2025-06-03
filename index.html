@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>惡意程式分析紀錄</title>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" />
+  <style>
+    body {
+      background-color: #121212;
+      color: #f0f0f0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 40px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    a {
+      color: #4a90e2;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    table.dataTable thead th {
+      background-color: #1f1f1f;
+      color: #fff;
+    }
+    table.dataTable tbody td {
+      background-color: #2a2a2a;
+    }
+    .dataTables_wrapper .dataTables_paginate .paginate_button {
+      color: white !important;
+    }
+    /* 修改 entries 選單樣式 */
+    .dataTables_wrapper .dataTables_length select {
+      background-color: #f5d0a9;
+      color: #000;
+      border: 1px solid #d1884f;
+      border-radius: 4px;
+      padding: 4px;
+    }
+    .dataTables_wrapper .dataTables_length label {
+      color: #f0f0f0;
+    }
+    /* 修改搜尋欄位樣式 */
+    .dataTables_wrapper .dataTables_filter input {
+      background-color: #fce8c3;
+      color: #000;
+      border: 1px solid #d1884f;
+      border-radius: 4px;
+      padding: 4px;
+    }
+    .dataTables_wrapper .dataTables_filter label {
+      color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <h1>惡意程式分析紀錄</h1>
+  <table id="malwareTable" class="display" style="width:100%">
+    <thead>
+      <tr>
+        <th>名稱</th>
+        <th>分析時間</th>
+        <th>APT 組織</th>
+        <th>攻擊目標</th>
+        <th>工具</th>
+        <th>分析報告連結</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>AgentTesla</td>
+        <td>2023-09-10</td>
+        <td>APT28</td>
+        <td>金融機構</td>
+        <td>Cobalt Strike, Mimikatz</td>
+        <td><a href="#">連結</a></td>
+      </tr>
+      <tr>
+        <td>PlugX</td>
+        <td>2024-02-21</td>
+        <td>APT41</td>
+        <td>軍事研究所</td>
+        <td>DLL Side-loading</td>
+        <td><a href="#">報告</a></td>
+      </tr>
+      <tr>
+        <td>Emotet</td>
+        <td>2024-01-15</td>
+        <td>APT-C-27</td>
+        <td>政府部門</td>
+        <td>PowerShell, VBA</td>
+        <td><a href="#">分析</a></td>
+      </tr>
+      <tr>
+        <td>Dridex</td>
+        <td>2023-12-05</td>
+        <td>TA505</td>
+        <td>銀行業</td>
+        <td>Macro, Excel 4.0</td>
+        <td><a href="#">報告</a></td>
+      </tr>
+      <tr>
+        <td>Quakbot</td>
+        <td>2023-10-27</td>
+        <td>UNC1878</td>
+        <td>企業內部網</td>
+        <td>LOLBAS, C2 Beacon</td>
+        <td><a href="#">報告</a></td>
+      </tr>
+      <tr>
+        <td>Ryuk</td>
+        <td>2023-11-02</td>
+        <td>Wizard Spider</td>
+        <td>醫療機構</td>
+        <td>RDP, File Encryption</td>
+        <td><a href="#">報告</a></td>
+      </tr>
+      <tr>
+        <td>Remcos</td>
+        <td>2024-03-03</td>
+        <td>APT33</td>
+        <td>能源公司</td>
+        <td>Keylogger, RAT</td>
+        <td><a href="#">詳情</a></td>
+      </tr>
+      <tr>
+        <td>CobaltStrike</td>
+        <td>2023-08-20</td>
+        <td>APT29</td>
+        <td>政治人物</td>
+        <td>Beacon, Pivoting</td>
+        <td><a href="#">報告</a></td>
+      </tr>
+      <tr>
+        <td>ShadowPad</td>
+        <td>2024-04-12</td>
+        <td>APT10</td>
+        <td>供應鏈</td>
+        <td>DLL Injection</td>
+        <td><a href="#">報告</a></td>
+      </tr>
+      <tr>
+        <td>Turla</td>
+        <td>2023-06-30</td>
+        <td>Turla Group</td>
+        <td>外交單位</td>
+        <td>Custom Backdoor</td>
+        <td><a href="#">報告</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('#malwareTable').DataTable({
+        paging: true,
+        searching: true,
+        ordering: true,
+        pageLength: 5,
+        language: {
+          url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/zh-HANT.json'
+        }
+      });
+    });
+  </script>
+</body>
+</html>
